@@ -17,11 +17,13 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Remove old lock file
-        run: rm -f package-lock.json
+      - name: Clean old files
+        run: |
+          rm -f package-lock.json
+          rm -rf node_modules
 
-      - name: Install dependencies
-        run: npm install --force
+      - name: Install Discord Selfbot directly
+        run: npm install discord.js-selfbot-v13 --force
 
       - name: Run Bot
         env:
