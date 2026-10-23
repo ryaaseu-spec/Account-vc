@@ -1,5 +1,4 @@
 const { Client } = require('discord.js-selfbot-v13');
-require('dotenv').config();
 
 const TOKEN = process.env.TOKEN;
 const CHANNEL_ID = process.env.CHANNEL_ID;
