@@ -1,9 +1,8 @@
 const { Client } = require('discord.js-selfbot-v13');
-const fs = require('fs');
+require('dotenv').config();
 
-// خوێندنەوەی زانیارییەکان لە فایلی config.json
-const configData = fs.readFileSync('./config.json', 'utf8');
-const config = JSON.parse(configData);
+const TOKEN = process.env.TOKEN;
+const CHANNEL_ID = process.env.CHANNEL_ID;
 
 const client = new Client({
     checkUpdate: false
@@ -13,7 +12,7 @@ client.on('ready', async () => {
     console.log(`سەرکەوتووانە چووە ژوورەوە بە ناوی: ${client.user.tag}`);
     
     try {
-        const channel = await client.channels.fetch(config.channelId);
+        const channel = await client.channels.fetch(CHANNEL_ID);
         
         if (channel && channel.isVoice()) {
             await channel.join();
@@ -26,4 +25,4 @@ client.on('ready', async () => {
     }
 });
 
-client.login(config.token);
+client.login(TOKEN);
