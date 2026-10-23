@@ -17,11 +17,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Clean old files
-        run: |
-          rm -f package-lock.json
-          rm -rf node_modules
-
       - name: Install Discord Selfbot directly
         run: npm install discord.js-selfbot-v13 --force
 
